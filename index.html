@@ -100,7 +100,7 @@
 
 	map.on('click', (e) => {
 		const center = [e.lngLat.lng, e.lngLat.lat];
-		const circle = turf.circle(center, 1, { steps: 64, units: 'kilometers' });
+		const circle = turf.circle(center, 5, { steps: 64, units: 'kilometers' });
 		map.getSource('circle-source').setData(circle);
 
 		let count = 0;
@@ -113,7 +113,7 @@
 		if (popup) popup.remove();
 		popup = new maplibregl.Popup()
 			.setLngLat(e.lngLat)
-			.setHTML(`<h3>1km以内の盗難件数</h3><p>${count} 件</p>`)
+			.setHTML(`<h3>5km以内の盗難件数</h3><p>${count} 件</p>`)
 			.addTo(map);
 	});
 </script>
